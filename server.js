@@ -25,7 +25,7 @@ app.use(express.static('public'));
 */
 
 //change get to post
-app.get('/users', jsonParser, function (req, res) {
+app.post('/users', jsonParser, function (req, res) {
     // if (!req.body) {
  //        return res.status(400).json({
  //            message: "No request body"
