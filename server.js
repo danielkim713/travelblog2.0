@@ -48,7 +48,7 @@ app.post('/users', jsonParser, function (req, res) {
  //            message: 'Incorrect field length: username'
  //        });
  //    }
- //https://github.com/phc5/medication-reminder/blob/master/server/index.js
+
 
     Users
         .find()
