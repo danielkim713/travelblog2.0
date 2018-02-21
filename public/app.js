@@ -1,3 +1,5 @@
+var jwtToken = null;
+
 var map = AmCharts.makeChart("chartdiv", {
   "type": "map",
   "theme": "light",
@@ -21,7 +23,29 @@ var map = AmCharts.makeChart("chartdiv", {
       
       area.showAsSelected = !area.showAsSelected;
       e.chart.returnInitialColor(area);
-      document.getElementById("selected").innerHTML = JSON.stringify(getSelectedCountries());
+      var selectedCountry = JSON.stringify(getSelectedCountries()).replace(/['"]+/g, '');
+      document.getElementById("selected").innerHTML = selectedCountry;
+
+      if (jwtToken) {
+        fetch("http://localhost:8080/api/posts/" + selectedCountry, {
+          headers: {
+            'content-type': 'application/json',
+            'Authorization': 'Bearer ' + jwtToken
+          }
+        }).then(response => {
+          console.log(response);
+          return response.json();
+        }).then(data => {
+          //loop through the data array
+          //get the username and put it into html
+          //get the content and put it into html
+          let commentsDiv = document.getElementById('comments');
+
+          data.forEach(post => {
+            commentsDiv.innerHTML = '<p>' + post.username + ': ' + post.content + '</p>'
+          });
+        })
+      }
     }
   }]
 });
@@ -46,36 +70,84 @@ function clearContents(element) {
   element.value = '';
 }
 
+function addEventListeners() {
+  // $('.btn_red').on('click',function(){
+  //     $('.usrform').css("display","block");
+  //     $('.useruser').html(username);
+  // });
 
-$(function() {
-    $("#login_form").click(function() {
-        $(".social_login").hide();
-        $(".user_login").show();
-        return false;
-    });
+  $("#login_form").click(function() {
+    $(".social_login").hide();
+    $(".user_login").show();
+  });
 
-    $("#register_form").click(function() {
-        $(".social_login").hide();
-        $(".user_register").show();
-        $(".header_title").text('Register');
-        return false;
-    });
+  $("#register_form").click(function() {
+    $(".social_login").hide();
+    $(".user_register").show();
+    $(".header_title").text('Register');
+  });
 
-    $(".back_btn").click(function() {
-        $(".user_login").hide();
-        $(".user_register").hide();
-        $(".social_login").show();
-        $(".header_title").text('Login');
-        return false;
+  $(".back_btn").click(function() {
+    $(".user_login").hide();
+    $(".user_register").hide();
+    $(".social_login").show();
+    $(".header_title").text('Login');
+  });
+
+  $("#registrationForm").submit(function (event) {
+    event.preventDefault();
+
+    const username = event.target["0"].value;
+    const password = event.target["1"].value;
+    
+    var requestBody = {
+      username,
+      password
+    };
+
+    fetch("http://localhost:8080/api/users/", {
+      body: JSON.stringify(requestBody),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST'
+    }).then(response => {
+      console.log(response);
     });
-});
+  });
+
+  $("#loginForm").submit(function (event) {
+    event.preventDefault();
+
+    const username = event.target["0"].value;
+    const password = event.target["1"].value;
+    
+    var requestBody = {
+      username,
+      password
+    };
+
+    fetch("http://localhost:8080/api/auth/login", {
+      body: JSON.stringify(requestBody),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST'
+    }).then(response => {
+      return response.json();
+    }).then(data => {
+      jwtToken = data.authToken;
+    });
+  });
+
+  // $("").submit(function(event))
+};
 
 
 $(document).ready(function(){
-    $('.btn_red').on('click',function(){
-        $('.usrform').css("display","block");
-        $('.useruser').html(username);
-    });
+    addEventListeners();
+
+
 });
 
 //document.getElementbyId('asdjfkl').addEventListener('submist,' function(e)){

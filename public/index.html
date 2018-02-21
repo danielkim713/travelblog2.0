@@ -34,7 +34,7 @@
 				</div>
 
 				<div class="user_login">
-					<form id="asdfjkl">
+					<form id="loginForm">
 						<label>Email / Username</label>
 						<input type="text" />
 						<br />
@@ -43,14 +43,9 @@
 						<input type="password" />
 						<br />
 
-						<div class="checkbox">
-							<input id="remember" type="checkbox" />
-							<label for="remember">Remember me on this computer</label>
-						</div>
-
 						<div class="action_btns">
 							<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-							<div class="one_half last"><a href="#" class="btn btn_red">Login</a></div>
+							<input type="submit" class="one_half last" value="Login">
 						</div>
 					</form>
 
@@ -58,27 +53,18 @@
 				</div>
 
 				<div class="user_register">
-					<form>
-						<label>Full Name</label>
-						<input type="text" />
-						<br />
-
+					<form id="registrationForm">
 						<label>Email Address</label>
-						<input type="email" />
+						<input name="email" type="email" />
 						<br />
 
 						<label>Password</label>
-						<input type="password" />
+						<input name="password" type="password" />
 						<br />
-
-						<div class="checkbox">
-							<input id="send_updates" type="checkbox" />
-							<label for="send_updates">Send me occasional email updates</label>
-						</div>
 
 						<div class="action_btns">
 							<div class="one_half"><a href="#" class="btn back_btn"><i class="fa fa-angle-double-left"></i> Back</a></div>
-							<div class="one_half last"><a href="#" class="btn btn_red">Register</a></div>
+							<input type="submit" class="one_half last" value="Register">
 						</div>
 					</form>
 				</div>
@@ -96,8 +82,8 @@
         	<textarea name="comment" form="usrform" onfocus="clearContents(this);">Enter comments here</textarea>
         	<button type="submit" class="commententer">Post</button>
 			<div class="comments">
-				<p>Comments:
-				<p> alkjdsfakljds
+				<p>Comments:</p>
+				<div id="comments"></div>
 			</div>
 		</div>
       </div>
