@@ -40,6 +40,7 @@ var map = AmCharts.makeChart("chartdiv", {
           //get the username and put it into html
           //get the content and put it into html
           let commentsDiv = document.getElementById('comments');
+          document.getElementById('comments').innerHTML = '';
 
           data.forEach(post => {
             commentsDiv.innerHTML = '<p>' + post.username + ': ' + post.content + '</p>'
