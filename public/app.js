@@ -76,6 +76,9 @@ function addEventListeners() {
   //     $('.usrform').css("display","block");
   //     $('.useruser').html(username);
   // });
+  $("#start").click(function(){
+    $(".blog-intro").hide();
+  });
 
   $("#login_form").click(function() {
     $(".social_login").hide();
@@ -94,6 +97,7 @@ function addEventListeners() {
     $(".social_login").show();
     $(".header_title").text('Login');
   });
+
 
   $("#registrationForm").submit(function (event) {
     event.preventDefault();
@@ -114,6 +118,11 @@ function addEventListeners() {
       method: 'POST'
     }).then(response => {
       console.log(response);
+    });
+
+    $("#formenter").click(function(){
+      $(".user_login").show();
+      $(".user_register").hide();
     });
   });
 
@@ -139,6 +148,12 @@ function addEventListeners() {
     }).then(data => {
       jwtToken = data.authToken;
     });
+
+    $("#loginenter").click(function(){
+      $(".popupBody").hide();
+      $("#welcome").show();
+      $("#welcome").html("Welcome " + username);
+    });
   });
 
   // $("").submit(function(event))
@@ -147,8 +162,6 @@ function addEventListeners() {
 
 $(document).ready(function(){
     addEventListeners();
-
-
 });
 
 //document.getElementbyId('asdjfkl').addEventListener('submist,' function(e)){
