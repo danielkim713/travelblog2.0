@@ -98,6 +98,10 @@ function addEventListeners() {
     $(".header_title").text('Login');
   });
 
+  $("#formenter").click(function(){
+    $(".user_login").show();
+    $(".user_register").hide();
+  });
 
   $("#registrationForm").submit(function (event) {
     event.preventDefault();
@@ -120,11 +124,8 @@ function addEventListeners() {
       console.log(response);
     });
 
-    $("#formenter").click(function(){
-      $(".user_login").show();
-      $(".user_register").hide();
-    });
   });
+
 
   $("#loginForm").submit(function (event) {
     event.preventDefault();
@@ -149,11 +150,9 @@ function addEventListeners() {
       jwtToken = data.authToken;
     });
 
-    $("#loginenter").click(function(){
-      $(".popupBody").hide();
-      $("#welcome").show();
-      $("#welcome").html("Welcome " + username);
-    });
+    $(".popupBody").hide();
+    $("#welcome").show();
+    $("#welcome").html("Welcome " + username);
   });
 
   // $("").submit(function(event))
