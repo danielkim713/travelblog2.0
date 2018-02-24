@@ -155,6 +155,31 @@ function addEventListeners() {
     $("#welcome").html("Welcome " + username);
   });
 
+  $("#commentForm").submit(function (event) {
+    event.preventDefault();
+
+    const username = event.target["0"].value;
+    const content = '';
+    const country = selectedCountry;
+    
+    var requestBody = {
+      username,
+      content,
+      country
+    };
+
+    fetch("http://localhost:8080/api/posts/" + selectedCountry, {
+      body: JSON.stringify(requestBody),
+      headers: {
+        'content-type': 'application/json'
+      },
+      method: 'POST'
+    }).then(response => {
+      console.log(response);
+    });
+
+  });
+
   // $("").submit(function(event))
 };
 
