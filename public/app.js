@@ -46,7 +46,7 @@ var map = AmCharts.makeChart("chartdiv", {
           document.getElementById('comments').innerHTML = '';
 
           data.forEach(post => {
-            commentsDiv.innerHTML = '<p>' + post.username + ': ' + post.content + '</p>'
+            commentsDiv.innerHTML += '<p>' + post.username + ': ' + post.content + '</p>'
           });
         })
       }

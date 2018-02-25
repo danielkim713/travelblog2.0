@@ -14,8 +14,6 @@ const jwtAuth = passport.authenticate('jwt', {session: false});
 
 // The user exchanges a valid JWT for a new one with a later expiration
 router.post('/', jwtAuth, (req, res) => {
-  const authToken = createAuthToken(req.user);
-  res.json({authToken});
 
   let country = req.body.country;
   let username = req.body.username;
@@ -25,8 +23,8 @@ router.post('/', jwtAuth, (req, res) => {
   	country: country,
   	content: content,
   	username: username
-  });
-  then(() => {
+  })
+  .then(() => {
   	return res.status(200).json({message: 'created'});
   }).catch(err => {
   	return res.status(500);
