@@ -1,4 +1,7 @@
-var jwtToken = null;
+var self = {
+  jwtToken: null,
+  username: null
+};
 
 var map = AmCharts.makeChart("chartdiv", {
   "type": "map",
@@ -26,11 +29,11 @@ var map = AmCharts.makeChart("chartdiv", {
       var selectedCountry = JSON.stringify(getSelectedCountries()).replace(/['"]+/g, '');
       document.getElementById("selected").innerHTML = selectedCountry;
 
-      if (jwtToken) {
+      if (self.jwtToken) {
         fetch("http://localhost:8080/api/posts/" + selectedCountry, {
           headers: {
             'content-type': 'application/json',
-            'Authorization': 'Bearer ' + jwtToken
+            'Authorization': 'Bearer ' + self.jwtToken
           }
         }).then(response => {
           console.log(response);
@@ -72,10 +75,7 @@ function clearContents(element) {
 }
 
 function addEventListeners() {
-  // $('.btn_red').on('click',function(){
-  //     $('.usrform').css("display","block");
-  //     $('.useruser').html(username);
-  // });
+
   $("#start").click(function(){
     $(".blog-intro").hide();
   });
@@ -147,20 +147,21 @@ function addEventListeners() {
     }).then(response => {
       return response.json();
     }).then(data => {
-      jwtToken = data.authToken;
+      self.jwtToken = data.authToken;
     });
 
     $(".popupBody").hide();
     $("#welcome").show();
     $("#welcome").html("Welcome " + username);
+    self.username = username;
   });
 
   $("#commentForm").submit(function (event) {
     event.preventDefault();
-
-    const username = event.target["0"].value;
-    const content = '';
-    const country = selectedCountry;
+    console.log(event)
+    const username = self.username;
+    const content = event.target.children[0].value;
+    const country = document.getElementById('selected').innerHTML;
     
     var requestBody = {
       username,
@@ -168,10 +169,11 @@ function addEventListeners() {
       country
     };
 
-    fetch("http://localhost:8080/api/posts/" + selectedCountry, {
+    fetch("http://localhost:8080/api/posts/" , {
       body: JSON.stringify(requestBody),
       headers: {
-        'content-type': 'application/json'
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + self.jwtToken
       },
       method: 'POST'
     }).then(response => {
@@ -187,17 +189,3 @@ function addEventListeners() {
 $(document).ready(function(){
     addEventListeners();
 });
-
-//document.getElementbyId('asdjfkl').addEventListener('submist,' function(e)){
-  //e.preventDefault();
-  //console.log(e);
-  // var bodyPayload = { }; 
-  //bodyPayload.username = e.inputfield1.value
-  //bodyPayload.password = e.inputfield2.value
-
-  //fetch('localhost:8080/users', {
-  //  method: 'POST',
-  //  body: JSON.stringify(bodyPayload)
-  //}).then(function (response) {
-  //  return response.json();
-  //})

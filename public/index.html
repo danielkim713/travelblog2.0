@@ -26,7 +26,7 @@
       </div>
     </section>
 
-    <div id="welcome" hidden>ddd</div>
+    <div id="welcome" hidden></div>
 
 	<div class="container">
 			<section class="popupBody">
@@ -83,14 +83,14 @@
     <div id="chartdiv"></div>
     <div id="info"><span id="selected">-</span>
       <div id="info">
-        <div id="commentForm" class="commentSection">
-        	<textarea name="comment" form="usrform" onfocus="clearContents(this);">Enter comments here</textarea>
-        	<button type="submit" class="commententer" id="postComment">Post</button>
-			<div class="comments">
-				<p>Comments:</p>
-				<div id="comments"></div>
-			</div>
-		</div>
+        <form id="commentForm" class="commentSection">
+		  <input name="comment" form="usrform" onfocus="clearContents(this);">Enter comments here</input>
+		  <button type="submit" class="commententer" id="postComment">Post</button>
+		  <div class="comments">
+		    <p>Comments:</p>
+		    <div id="comments"></div>
+		  </div>
+		</form>
       </div>
     </div>
     
