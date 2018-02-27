@@ -148,6 +148,12 @@ function addEventListeners() {
       return response.json();
     }).then(data => {
       self.jwtToken = data.authToken;
+    })
+      .catch(err => {
+      if (err.reason === 'LoginError') {
+        return callback(null, false, err);
+      }
+      return callback(err, false);
     });
 
     $(".popupBody").hide();
