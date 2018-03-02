@@ -2,13 +2,11 @@
 
 body {
   font-family: Lato;
-  font-size: 15px;
 }
 
 header, .container, #welcome{
   max-width: 1280px;
   margin: auto;
-  background-color: lightyellow;
 }
 
 .blog-intro{
@@ -40,36 +38,6 @@ header, .container, #welcome{
           box-sizing: border-box;
 }
 
-ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    overflow: hidden;
-    border: 1px solid #e7e7e7;
-    background-color: #f3f3f3;
-}
-
-li {
-    float: left;
-}
-
-li a {
-    display: block;
-    color: #666;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-}
-
-li a:hover:not(.active) {
-    background-color: #ddd;
-}
-
-li a.active {
-    color: white;
-    background-color: #4CAF50;
-}
-
 
 body {
   font-family: "Source Sans Pro", sans-serif;
@@ -80,7 +48,6 @@ body {
 h1 {
   text-align: center;
   margin-bottom: 0;
-  margin-top: 60px;
 }
 
 #lean_overlay {
@@ -114,6 +81,10 @@ h1 {
 .btn {
   padding: 10px 20px;
   background: #f4f4f2;
+}
+
+#login_enter{
+  padding: 10px 20px;
 }
 
 .btn_red {
@@ -179,44 +150,6 @@ a.btn_red {
   padding: 20px;
   max-width: 500px;
   margin: auto; 
-}
-/* Social Login Form */
-
-.social_login {
-}
-
-.social_login .social_box {
-  display: block;
-  clear: both;
-  padding: 10px;
-  margin-bottom: 10px;
-  background: #f4f4f2;
-  overflow: hidden;
-}
-
-.social_login .icon {
-  display: block;
-  width: 10px;
-  padding: 5px 10px;
-  margin-right: 10px;
-  float: left;
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-}
-
-
-.social_login .icon_title {
-  display: block;
-  padding: 5px 0;
-  float: left;
-  font-weight: bold;
-  font-size: 16px;
-  color: #777;
-}
-
-.social_login .social_box:hover {
-  background: #e4e4e2;
 }
 
 .centeredText {
@@ -329,6 +262,8 @@ h1 {
   height: 400px;
   border: 1px solid #ddd;
   margin: 0 auto;
+  color: black;
+  background-color: #51a6db;
 }
 
 #info .comment{
@@ -338,23 +273,20 @@ h1 {
   padding: 5px 8px;
 }
 
-#usrform{
-  display: none;
-}
 .commentSection{
-  margin: auto;
   max-width: 500px;
-  background-color: lightpink;
+  background-color: white;
 }
 
-#countryname{
-  margin: auto;
-}
+.countryname{
+  background-color: green;
+  }
 
 span {
   width: 100px;
-  margin: auto;
-  border-radius: 3px;
+  text-align: center;
+  border-radius: 3px black;
+  font-size: 26px;
 }
 
 .commententer{
@@ -367,7 +299,3 @@ span {
   border-color: #418ef2;
 }
 
-
-.signup{
-  display: none;
-}

@@ -11,16 +11,12 @@
 	 <div class="imgcontainer">
 	   <img src="img_avatar2.png" alt="Travel Blog" class="avatar">
 	 </div>
-
-	 <ul>
-	  <li><a class="active" href="#home">Home</a></li>
-	  <li><a href="#about">About</a></li>
-	  </ul>
 	</header>
 
 	<section class='blog-intro'>
       <div class="overlay">
         <p>Welcome to the Travel Blog Information Guide</p>
+        <p>Information: This blog is designed for travelers who are curious about what others think about the countries they want to visit.  Sign up and log in in order to see the information that the others have inputted about the country you are interested in!  
         <p>Press start to begin </p>
         <button id="start">Start</button>
       </div>
@@ -81,18 +77,18 @@
     <script src="https://www.amcharts.com/lib/3/themes/light.js"></script>
     <h1>Click the country you want to learn more about!</h1>
     <div id="chartdiv"></div>
-    <div id="countryname"><span id="selected">-</span>
-      <div id="info">
+    <div id="countryname"><span id="selected">-</span></div>
+     <div id="info">
         <form id="commentForm" class="commentSection">
-		  <input name="comment" form="usrform" onfocus="clearContents(this);">Enter comments here</input>
-		  <button type="submit" class="commententer" id="postComment">Post</button>
-		  <div class="comments">
-		    <p>Comments:</p>
-		    <div id="comments"></div>
-		  </div>
+	  		<input name="comment" placeholder="Enter comments here" form="usrform" onfocus="clearContents(this);"></input>
+	  		<button type="submit" class="commententer" id="postComment">Post</button>
+		  	<div class="comments">
+		    	<p>Comments:</p>
+		    	<div id="comments"></div>
+		  	</div>
 		</form>
-      </div>
-    </div>
+     </div>
+    
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="app.js"></script>

@@ -5,14 +5,14 @@ var self = {
 
 var map = AmCharts.makeChart("chartdiv", {
   "type": "map",
-  "theme": "light",
+  "theme": "dark",
   "projection": "eckert3",
   "dataProvider": {
     "map": "worldLow",
     "getAreasFromMap": true
   },
   "areasSettings": {
-    "selectedColor": "#CC0000",
+    "selectedColor": "#7fc6a4",
     "selectable": true
   },
   "listeners": [{
