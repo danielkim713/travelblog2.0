@@ -30,7 +30,7 @@ var map = AmCharts.makeChart("chartdiv", {
       document.getElementById("selected").innerHTML = selectedCountry;
 
       if (self.jwtToken) {
-        fetch("http://localhost:8080/api/posts/" + selectedCountry, {
+        fetch("https://localhost/api/posts/" + selectedCountry, {
           headers: {
             'content-type': 'application/json',
             'Authorization': 'Bearer ' + self.jwtToken
@@ -114,7 +114,7 @@ function addEventListeners() {
       password
     };
 
-    fetch("http://localhost:8080/api/users/", {
+    fetch("https://localhost/api/users/", {
       body: JSON.stringify(requestBody),
       headers: {
         'content-type': 'application/json'
@@ -138,7 +138,7 @@ function addEventListeners() {
       password
     };
 
-    fetch("http://localhost:8080/api/auth/login", {
+    fetch("https://localhost/api/auth/login", {
       body: JSON.stringify(requestBody),
       headers: {
         'content-type': 'application/json'
