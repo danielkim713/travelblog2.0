@@ -114,7 +114,7 @@ function addEventListeners() {
       password
     };
 
-    fetch("http://localhost:8080/api/users/", {
+    fetch("https://localhost:8080/api/users/", {
       body: JSON.stringify(requestBody),
       headers: {
         'content-type': 'application/json'
@@ -138,7 +138,7 @@ function addEventListeners() {
       password
     };
 
-    fetch("http://localhost:8080/api/auth/login", {
+    fetch("https://localhost:8080/api/auth/login", {
       body: JSON.stringify(requestBody),
       headers: {
         'content-type': 'application/json'
