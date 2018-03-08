@@ -184,7 +184,7 @@ a.btn_red {
 .user_login input[type="email"],
 .user_login input[type="password"] {
   display: block;
-  width: 90%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   color: #666;
@@ -228,7 +228,7 @@ a.btn_red {
 .user_register input[type="email"],
 .user_register input[type="password"] {
   display: block;
-  width: 90%;
+  width: 100%;
   padding: 10px;
   border: 1px solid #ddd;
   color: #666;
