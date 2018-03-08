@@ -84,8 +84,10 @@ h1 {
   background: #f4f4f2;
 }
 
-#loginenter{
-  font-family: Lato;
+#loginenter , #formenter{
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 14px;
+  color: #666;
 }
 
 .btn_red {
