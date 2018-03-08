@@ -84,8 +84,8 @@ h1 {
   background: #f4f4f2;
 }
 
-#login_enter{
-  padding: 10px 20px;
+#loginenter{
+  font-family: Lato;
 }
 
 .btn_red {
