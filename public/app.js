@@ -148,18 +148,19 @@ function addEventListeners() {
       return response.json();
     }).then(data => {
       self.jwtToken = data.authToken;
+      $(".popupBody").hide();
+      $("#welcome").show();
+      $("#welcome").html("Welcome " + username);
+      self.username = username;
     })
       .catch(err => {
       if (err.reason === 'LoginError') {
+        alert("Invalid username or password")
         return callback(null, false, err);
       }
       return callback(err, false);
     });
 
-    $(".popupBody").hide();
-    $("#welcome").show();
-    $("#welcome").html("Welcome " + username);
-    self.username = username;
   });
 
   $("#commentForm").submit(function (event) {
