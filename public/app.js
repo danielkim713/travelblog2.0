@@ -154,11 +154,7 @@ function addEventListeners() {
       self.username = username;
     })
       .catch(err => {
-      if (err.reason === 'LoginError') {
-        alert("Invalid username or password")
-        return callback(null, false, err);
-      }
-      return callback(err, false);
+        alert("Invalid username or password");
     });
 
   });
