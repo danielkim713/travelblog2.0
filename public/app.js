@@ -3,7 +3,9 @@ var self = {
   username: null
 };
 
+var selectedCountry;
 var map = AmCharts.makeChart("chartdiv", {
+
   "type": "map",
   "theme": "dark",
   "projection": "eckert3",
@@ -26,33 +28,37 @@ var map = AmCharts.makeChart("chartdiv", {
       
       area.showAsSelected = !area.showAsSelected;
       e.chart.returnInitialColor(area);
-      var selectedCountry = JSON.stringify(getSelectedCountries()).replace(/['"]+/g, '');
+      selectedCountry = JSON.stringify(getSelectedCountries()).replace(/['"]+/g, '');
       document.getElementById("selected").innerHTML = selectedCountry;
 
-      if (self.jwtToken) {
-        fetch("/api/posts/" + selectedCountry, {
-          headers: {
-            'content-type': 'application/json',
-            'Authorization': 'Bearer ' + self.jwtToken
-          }
-        }).then(response => {
-          console.log(response);
-          return response.json();
-        }).then(data => {
-          //loop through the data array
-          //get the username and put it into html
-          //get the content and put it into html
-          let commentsDiv = document.getElementById('comments');
-          document.getElementById('comments').innerHTML = '';
-
-          data.forEach(post => {
-            commentsDiv.innerHTML += '<p>' + post.username + ': ' + post.content + '</p>'
-          });
-        })
-      }
+      getCountryComments();
     }
   }]
 });
+
+function getCountryComments(){
+  if (self.jwtToken) {
+    fetch("/api/posts/" + selectedCountry, {
+      headers: {
+        'content-type': 'application/json',
+        'Authorization': 'Bearer ' + self.jwtToken
+      }
+    }).then(response => {
+      console.log(response);
+      return response.json();
+    }).then(data => {
+      //loop through the data array
+      //get the username and put it into html
+      //get the content and put it into html
+      let commentsDiv = document.getElementById('comments');
+      document.getElementById('comments').innerHTML = '';
+
+      data.forEach(post => {
+        commentsDiv.innerHTML += '<p>' + post.username + ': ' + post.content + '</p>'
+      });
+    })
+  }
+}
 
 function getSelectedCountries() {
   var selected = "";
@@ -180,7 +186,7 @@ function addEventListeners() {
       },
       method: 'POST'
     }).then(response => {
-      console.log(response);
+      getCountryComments();
     });
 
   });
