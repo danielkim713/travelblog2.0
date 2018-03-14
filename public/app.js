@@ -54,9 +54,9 @@ function getCountryComments(){
       document.getElementById('comments').innerHTML = '';
 
       data.forEach(post => {
-        commentsDiv.innerHTML += '<p class="singleComment">' + "<h1>" + post.username + "</h1>" + ': ' +  '<p>' +_ post.content + '</p>' + '</p>'
+        commentsDiv.innerHTML += '<p class="singleComment">' + '<h1>' + post.username + "</h1>" + ': ' +  '<p>' +_ post.content + '</p>' + '</p>'
       });
-    })
+    });
   }
 }
 
