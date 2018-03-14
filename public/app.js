@@ -157,6 +157,7 @@ function addEventListeners() {
       $(".popupBody").hide();
       $("#welcome").show();
       $("#welcome").html("Welcome " + username);
+      $("#commentForm").show();
       self.username = username;
     })
       .catch(err => {
