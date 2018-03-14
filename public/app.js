@@ -54,7 +54,7 @@ function getCountryComments(){
       document.getElementById('comments').innerHTML = '';
 
       data.forEach(post => {
-        commentsDiv.innerHTML += '<p>' + post.username + ': ' + post.content + '</p>'
+        commentsDiv.innerHTML += '<p class="singleComment">' + post.username + ': ' + post.content + '</p>'
       });
     })
   }
