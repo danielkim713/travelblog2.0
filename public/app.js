@@ -187,6 +187,7 @@ function addEventListeners() {
       method: 'POST'
     }).then(response => {
       getCountryComments();
+      $("#entercomments").val("");
     });
 
   });
