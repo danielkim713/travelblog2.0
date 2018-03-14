@@ -282,6 +282,14 @@ a.btn_red {
   overflow: hidden;
 }
 
+
+
+h1 {
+  font-size: 1.5em;
+  font-weight: 400;
+
+  }
+
 #chartdiv {
   max-width: 1100px;
   height: 400px;
