@@ -10,11 +10,12 @@ header, .container, #welcome{
 }
 
 #start{
-  padding: 0 20px;
+  padding: 0 40px;
   border: none;
-  height: 30px;
+  height: 40px;
   background-color: #418ef2;
   color: white;
+  font-size: 16px;
 }
 
 .blog-intro{
@@ -30,11 +31,19 @@ header, .container, #welcome{
   background-color: white;
   background-size: cover;
   background-position: center;
+  background-image: url("http://d3cbihxaqsuq0s.cloudfront.net/images/39460720_xl.jpg")
 }
 
 .overlay {
-  max-width: 1100px;
+  max-width: 900px;
   margin: auto;
+  margin-top: 80px;
+  background-color: rgba(255,255,255,0.2);
+  padding: 15px;
+}
+
+.overlay p {
+  font-size: 16px;
 }
 
 .imgcontainer{
